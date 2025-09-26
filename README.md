@@ -1,36 +1,91 @@
-# Portfolio Website
+# Shreya Mandekar - MERN Stack Portfolio
 
-A modern, responsive portfolio website built with HTML, CSS, and JavaScript. This website showcases your projects, skills, and professional information in a clean and elegant design.
+A modern, full-stack portfolio website built with the MERN stack (MongoDB, Express.js, React, Node.js). This website showcases projects, skills, and professional information with a dynamic backend API and interactive frontend.
 
 ## 🚀 Features
 
+### Frontend (React + TypeScript)
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile devices
-- **Modern UI/UX**: Clean, professional design with smooth animations
+- **Modern UI/UX**: Clean, professional design with smooth animations using Framer Motion
 - **Interactive Elements**: Smooth scrolling, hover effects, and dynamic content
-- **Contact Form**: Functional contact form with validation
-- **Project Showcase**: Display your projects with descriptions and links
-- **Skills Section**: Highlight your technical skills and expertise
-- **Social Links**: Connect your social media profiles
-- **SEO Optimized**: Proper meta tags and semantic HTML structure
+- **TypeScript**: Full type safety and better development experience
+- **Component Architecture**: Modular, reusable React components
+
+### Backend (Node.js + Express)
+- **RESTful API**: Complete API endpoints for all portfolio features
+- **Contact Form**: Functional contact form with validation and spam protection
+- **Project Management**: Dynamic project showcase with like/view tracking
+- **Visitor Analytics**: Track and analyze website visitors
+- **Security**: Rate limiting, CORS, helmet, and input validation
+
+### Database (MongoDB)
+- **Contact Messages**: Store and manage contact form submissions
+- **Projects**: Dynamic project management with categories and features
+- **Visitor Tracking**: Analytics and visitor behavior tracking
+- **Data Validation**: Mongoose schemas with validation rules
 
 ## 📁 Project Structure
 
 ```
 Portfolio_website/
-├── index.html          # Main HTML file
-├── styles.css          # CSS styles and responsive design
-├── script.js           # JavaScript functionality
-├── README.md           # Project documentation
-└── Cozy_Bedroom_Scene_Generation.mp4  # Sample project video
+├── server.js                    # Express server entry point
+├── package.json                 # Backend dependencies
+├── config.env                   # Environment configuration
+├── routes/                      # API routes
+│   ├── contact.js              # Contact form endpoints
+│   ├── projects.js             # Project management endpoints
+│   └── visitors.js             # Visitor analytics endpoints
+├── models/                      # MongoDB models
+│   ├── Contact.js              # Contact message schema
+│   ├── Project.js              # Project schema
+│   └── Visitor.js              # Visitor tracking schema
+├── client/                      # React frontend
+│   ├── public/
+│   │   ├── index.html          # HTML template
+│   │   └── manifest.json       # PWA manifest
+│   ├── src/
+│   │   ├── components/         # React components
+│   │   │   ├── Navbar.tsx
+│   │   │   ├── Hero.tsx
+│   │   │   ├── About.tsx
+│   │   │   ├── Skills.tsx
+│   │   │   ├── Projects.tsx
+│   │   │   ├── Contact.tsx
+│   │   │   └── Footer.tsx
+│   │   ├── services/           # API services
+│   │   ├── types/              # TypeScript types
+│   │   ├── App.tsx             # Main App component
+│   │   └── index.tsx           # React entry point
+│   └── package.json            # Frontend dependencies
+├── Cozy_Bedroom_Scene_Generation.mp4  # Sample project video
+└── README.md                   # Project documentation
 ```
 
 ## 🛠️ Technologies Used
 
-- **HTML5**: Semantic markup and structure
+### Frontend
+- **React 18**: Modern React with hooks and functional components
+- **TypeScript**: Type-safe JavaScript for better development experience
+- **Framer Motion**: Smooth animations and transitions
+- **React Router**: Client-side routing
+- **Axios**: HTTP client for API calls
+- **React Icons**: Beautiful icon library
 - **CSS3**: Modern styling with Flexbox and Grid
-- **JavaScript (ES6+)**: Interactive functionality and animations
-- **Font Awesome**: Icons for social links and UI elements
-- **Google Fonts**: Inter font family for typography
+
+### Backend
+- **Node.js**: JavaScript runtime environment
+- **Express.js**: Web application framework
+- **MongoDB**: NoSQL database
+- **Mongoose**: MongoDB object modeling
+- **JWT**: JSON Web Tokens for authentication
+- **Bcrypt**: Password hashing
+- **Nodemailer**: Email sending functionality
+
+### Development & Deployment
+- **Git**: Version control
+- **GitHub Pages**: Static site hosting
+- **Heroku**: Backend hosting (optional)
+- **MongoDB Atlas**: Cloud database (optional)
 
 ## 🎨 Design Features
 
@@ -50,21 +105,65 @@ Portfolio_website/
 
 ### Prerequisites
 
+- **Node.js** (v16 or higher)
+- **npm** or **yarn** package manager
+- **MongoDB** (local installation or MongoDB Atlas account)
+- **Git** for version control
 - A modern web browser
-- A text editor (VS Code, Sublime Text, etc.)
-- Basic knowledge of HTML, CSS, and JavaScript
+- A text editor (VS Code recommended)
 
 ### Installation
 
-1. **Clone or download** this repository to your local machine
-2. **Open** the project folder in your preferred text editor
-3. **Customize** the content in `index.html` with your information:
-   - Replace "Your Name" with your actual name
-   - Update the hero section with your title and description
-   - Add your projects in the projects section
-   - Update your skills in the skills section
-   - Add your contact information
-   - Update social media links
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/ShreyaMandekar/Portfolio.git
+   cd Portfolio
+   ```
+
+2. **Install backend dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Install frontend dependencies**:
+   ```bash
+   cd client
+   npm install
+   cd ..
+   ```
+
+4. **Set up environment variables**:
+   - Copy `config.env` to `.env`
+   - Update the configuration with your values:
+     ```env
+     NODE_ENV=development
+     PORT=5000
+     MONGODB_URI=mongodb://localhost:27017/portfolio
+     JWT_SECRET=your-super-secret-jwt-key
+     ```
+
+5. **Start MongoDB** (if using local installation):
+   ```bash
+   mongod
+   ```
+
+6. **Run the development server**:
+   ```bash
+   # Start both frontend and backend
+   npm run dev
+   
+   # Or start them separately:
+   # Backend only
+   npm run server
+   
+   # Frontend only (in another terminal)
+   cd client && npm start
+   ```
+
+7. **Access the application**:
+   - Frontend: http://localhost:3000
+   - Backend API: http://localhost:5000
+   - API Health Check: http://localhost:5000/api/health
 
 ### Customization Guide
 
